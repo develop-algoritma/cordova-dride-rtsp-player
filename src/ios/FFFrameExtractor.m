@@ -269,7 +269,8 @@ int8_t SetupAVContextForURL(AVFormatContext **pFormatContext, AVCodecContext **p
     
     // holy shit, turn this flag on and magically all the bad artifacts go away
     // source: http://lists.live555.com/pipermail/live-devel/2013-February/016561.html
-    (*pCodecContext)->flags2 = CODEC_FLAG2_CHUNKS;
+    //TODO: verificare (*pCodecContext)->flags2 = CODEC_FLAG2_CHUNKS;
+
     (*pCodecContext)->error_concealment = FF_EC_GUESS_MVS | FF_EC_DEBLOCK;
     
     // set audio codec context and make sure codec exists
