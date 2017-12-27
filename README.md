@@ -15,3 +15,7 @@ Now you are ready to go
 ``` javascript
 cordova.plugins.rtsplayer.watchVideo("rtsp://192.168.1.254/xxx.mov", callbackSucces, callbackError);
 ```
+## Notes
+This is a fork of [this original project](https://github.com/dride/cordova-dride-rtsp-player/)
+
+
