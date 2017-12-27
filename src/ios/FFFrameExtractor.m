@@ -203,12 +203,20 @@ int8_t SetupAVContextForURL(AVFormatContext **pFormatContext, AVCodecContext **p
 
 int8_t SetupAVContextForURL(AVFormatContext **pFormatContext, AVCodecContext **pCodecContext, AVCodecContext **pAudioCodecContext, int *pVideoStream, int *pAudioStream, const char *rstpURL) {
     AVCodec *pCodec;
-    
+   
+    // set tcp as transport protocol
+    AVDictionary *opts = NULL;
+    av_dict_set(&opts, "rtsp_transport", "tcp", 0);
     // Open video file
-    int result = avformat_open_input(pFormatContext, rstpURL, NULL, NULL);
+    int result = avformat_open_input(pFormatContext, rstpURL, NULL, &opts);
     if (result != 0) {
-        NSLog(@"Couldn't open stream");
-        return -1;
+        NSLog(@"Couldn't open stream. try with standard options...");
+        // try open video file with standard options
+        result = avformat_open_input(pFormatContext, rstpURL, NULL, NULL);
+        if (result != 0) {
+            NSLog(@"Couldn't open stream.");
+            return -1;
+        }
     }
     
     // dump stream info
@@ -236,7 +244,7 @@ int8_t SetupAVContextForURL(AVFormatContext **pFormatContext, AVCodecContext **p
     
     if (audioStream < 0) {
         NSLog(@"Couldn't get Audio Stream");
-//        return -1;
+        //return -1;
     }
     
     NSLog(@"Got Streams: Video: %i, Audio: %i", videoStream, audioStream);
