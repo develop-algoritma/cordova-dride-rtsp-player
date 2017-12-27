@@ -47,8 +47,9 @@
        <config-file target="AndroidManifest.xml" parent="/manifest/application">
         <activity android:name="cordova.plugin.dride.rtsplayer.rtsplayerActivity"></activity>
       </config-file>
-      <source-file src="src/android/rtsplayer.java" target-dir="src/io/dride/rtsplayer" />
-      <source-file src="src/android/rtsplayerActivity.java" target-dir="src/io/plugin/rtsplayer" />
+      <source-file src="src/android/rtsplayer.java" target-dir="src/cordova/plugin/dride/rtsplayer" />
+      <source-file src="src/android/rtsplayerActivity.java" target-dir="src/cordova/plugin/dride/rtsplayer" />
+
    </platform>
    
 </plugin>
