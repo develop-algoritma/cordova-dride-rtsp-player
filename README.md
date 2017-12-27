@@ -4,7 +4,7 @@ a rtsp player using FFMpeg and ImageView for Dride-App.
 
 ## Install
 
-```cordova plugin add https://github.com/dride/cordova-dride-rtsp-player```
+```cordova plugin add https://github.com/develop-algoritma/cordova-dride-rtsp-player```
 
 Execute the compile.sh inside the Plugins folder
 
